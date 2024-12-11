@@ -5,12 +5,16 @@ import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 import { useAlert } from "react-alert";
 
-export default function TaskItem({ task }) {
+export default function TaskItem({ task, fetchTask }) {
   const alert = useAlert();
 
   async function handlerDeleteTasks() {
     try {
       await axios.delete(`http://localhost:8000/tasks/${task._id}`);
+
+      await fetchTask();
+
+      alert.success("Tarefa excluída com sucesso!");
     } catch (err) {
       alert.error("algo deu errado");
       console.log(err);

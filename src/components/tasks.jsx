@@ -29,7 +29,7 @@ export default function Tasks() {
           {tasks
             .filter((task) => task.isCompleted === false)
             .map((lastTask) => (
-              <TaskItem task={lastTask} />
+              <TaskItem task={lastTask} fetchTask={fetchTask} />
             ))}
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function Tasks() {
           {tasks
             .filter((task) => task.isCompleted)
             .map((completedTask) => (
-              <TaskItem task={completedTask} />
+              <TaskItem task={completedTask} fetchTask={fetchTask} />
             ))}
         </div>
       </div>
