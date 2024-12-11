@@ -20,7 +20,7 @@ export default function Tasks() {
   }, []);
 
   return (
-    <div className="task-container">
+    <div className="tasks-container">
       <h2>Minhas tarefas</h2>
       <div className="last-tasks">
         <h3>Ultimas Tarefas</h3>
