@@ -24,7 +24,7 @@ export default function Tasks() {
       <h2>Minhas tarefas</h2>
       <div className="last-tasks">
         <h3>Ultimas Tarefas</h3>
-        <AddTask />
+        <AddTask fetchTask={fetchTask} />
         <div className="tasks-list">
           {tasks
             .filter((task) => task.isCompleted === false)
