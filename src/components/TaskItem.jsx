@@ -2,8 +2,21 @@ import React from "react";
 import "./TaskItem.scss";
 
 import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
+import { useAlert } from "react-alert";
 
 export default function TaskItem({ task }) {
+  const alert = useAlert();
+
+  async function handlerDeleteTasks() {
+    try {
+      await axios.delete(`http://localhost:8000/tasks/${task._id}`);
+    } catch (err) {
+      alert.error("algo deu errado");
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <div className="task-item-container">
@@ -23,7 +36,11 @@ export default function TaskItem({ task }) {
           </label>
         </div>
         <div className="delete">
-          <AiFillDelete size={18} color="#f97474" />
+          <AiFillDelete
+            size={18}
+            color="#f97474"
+            onClick={handlerDeleteTasks}
+          />
         </div>
       </div>
     </>
